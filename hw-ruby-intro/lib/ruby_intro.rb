@@ -3,10 +3,7 @@
 # Part 1
 
 def sum (arr)
-  sum = 0
-  x = arr.each do |n| 
-      
-  sum = sum + n
+  arr.sum
 end
 
 
@@ -14,19 +11,21 @@ def max_2_sum (arr)
   sum_of_two_max = 0
   if arr.length() == 0
     sum_of_two_max = 0
+    return 0
   elsif arr.length() == 1
     sum_of_two_max = arr.at(0)
+    return sum_of_two_max 
   else
     two_max = arr.max(2)
     two_max.each {|n| sum_of_two_max+= n}
-    print sum_of_two_max
+     return sum_of_two_max
   end
- return sum
+  arr.max(2).sum
 end
 
 
 def sum_to_n? (arr,n)
-  
+
   a2 = arr.combination(2).to_a
       answer = false 
   a2.each do |sub_array| 
