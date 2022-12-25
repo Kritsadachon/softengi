@@ -8,33 +8,19 @@ end
 
 
 def max_2_sum (arr)
-  sum_of_two_max = 0
-  if arr.length() == 0
-    sum_of_two_max = 0
-    return 0
-  elsif arr.length() == 1
-    sum_of_two_max = arr.at(0)
-    return sum_of_two_max 
-  else
-    two_max = arr.max(2)
-    two_max.each {|n| sum_of_two_max+= n}
-     return sum_of_two_max
-  end
   arr.max(2).sum
 end
 
 
 def sum_to_n? (arr,n)
-
   a2 = arr.combination(2).to_a
       answer = false 
   a2.each do |sub_array| 
-      
-      if sub_array[0] + sub_array[1] == n
+
+      if sub_array[0] + sub_array[1] == n # sub_array[0] is array, sub_array[1] is a number
           answer = true
       end
   end
-  
   return answer
 end
 
@@ -47,11 +33,10 @@ end
 
 
 def starts_with_consonant?(s)
-  
   vowels = ['a', 'e', 'i', 'o', 'u']
   string = s
-  if vowels.include? string[0] or vowels.map!(&:upcase).include? string[0]
-	  return true
+  if string[0] =~ /[a-z&&[^aeiou]]/
+    return true
   else
 	  return false
   end
@@ -59,9 +44,8 @@ end
 
 
 def binary_multiple_of_4?(s)
-  
   answer = false
-  if s=="0"
+  if s == "0"
       answer = true
   elsif s =~ /^[10]*00$/
       answer = true
@@ -69,10 +53,9 @@ def binary_multiple_of_4?(s)
   return answer
 end
 
-# PART 3
+# PART 3 
 
 class BookInStock
- 
   def initialize(isbn, price)
       if isbn.empty? || price <= 0
           raise ArgumentError, "Your input is invalid"
@@ -82,25 +65,24 @@ class BookInStock
       end
   end
 
-  def isbn
+  def isbn # getter method
       @isbn 
   end
   
-  def price
+  def price # getter method
       @price
   end
   
-  def isbn=(new_isbn)
+  def isbn=(new_isbn) # setter method
       @isbn = new_isbn
   end
       
-  def price=(new_price)
+  def price=(new_price) # setter method
       @price = new_price
   end
   
   def price_as_string
     newprice = "$"+ "#{'%.02f' % price}"
-  
     return newprice
   end
 
