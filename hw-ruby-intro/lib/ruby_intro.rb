@@ -16,7 +16,6 @@ def sum_to_n? (arr,n)
   a2 = arr.combination(2).to_a
       answer = false 
   a2.each do |sub_array| 
-
       if sub_array[0] + sub_array[1] == n # sub_array[0] is array, sub_array[1] is a number
           answer = true
       end
